@@ -18,6 +18,9 @@
 .nav {
   background-color: black;
   padding-left: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .nav>ul {
@@ -55,34 +58,40 @@
 }
 
 .colunm {
+
   padding: 0px 10px 0px 10px;
   height: auto;
   width: 600px;
   margin-top: 10px;
   text-decoration: none;
+  position: relative;
 }
 
-
 .cardFilm {
+  border: 1px solid black;
+  box-shadow: 1px;
   height: auto;
   width: 600px;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.cardFilm>img {
+
+.filmImg{
   height: 500px;
   width: 600px;
   object-fit: fill;
-
-} 
-
-
- .cardFilm>img:hover {
-  transform: scale(1.2, 1.2);
-  transition: all 1s ease;
+  border-radius: 5px;
 }
+
+.cardFilm:hover .filmImg {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
 
 .title {
   color: #333;
@@ -93,13 +102,14 @@
   text-decoration: none;
   position: absolute;
   width: 100%;
-  background: linear-gradient(to bottom,transparent, black 99%);
-  
+  background: linear-gradient(to bottom, transparent, black 99%);
+
 }
 
-.title>div{
+.title>div {
   justify-content: start;
 }
+
 .title>div>p {
   width: auto;
   height: 10px;
@@ -114,17 +124,73 @@
   padding-left: 10px;
 }
 
-.cardFilm .overlay-link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: red;
-  text-decoration: none;
-  opacity: 0; /* Ban đầu ẩn */
-  transition: opacity 0.3s ease;
+/*Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.modalHeader {
+  border-bottom: 1px solid #E7E9EB;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.modalContent {
+  background-color: #fff;
+  margin: 20px; 
+  display: flex;
+}
+
+.modalContent>img{
+  border-radius: 50%;
+  border: 1px solid black;
+  
+}
+
+.description {
+  margin-left: 20px;
+  width: 500px;
+  height: auto;
+  text-align: left;
+}
+
+.small-text{
+  font-size: small;
+  font-weight: 500;
+}
+.modalFooter {
+  border-top: 1px solid #E7E9EB;
+  text-align: end;
+  padding: 10px 10px 10px 0;
+}
+
+.modalFooter>button {
+  height: 40px;
+  width: 70px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.modalFooter>button:hover {
+  background-color: #E7E9EB;
 }
 
 
@@ -135,7 +201,7 @@
   padding: 5px 0 5px 0;
 }
 
-.App-header { 
+.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -154,6 +220,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {ListOfFilm as Films} from '../../src/Shared/ListOfFilm'
+import { ListOfFilm as Films } from '../../src/Shared/ListOfFilm'
 
 import FilmsPresentation from './FilmPresentation ';
 
